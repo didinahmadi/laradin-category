@@ -24,7 +24,14 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Laravel\\Category\\Tests\\": "tests/"
+            "Laradin\\Category\\Tests\\": "tests/"
         }
-    }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Laradin\\Category\\CategoryServiceProvider"
+            ]
+        }
+    },
 }
