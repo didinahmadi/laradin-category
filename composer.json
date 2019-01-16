@@ -20,7 +20,7 @@
     "autoload": {
         "psr-4": {
             "Laradin\\Category\\": "src/",
-            "Laradin\\Category\\Database": "database/"
+            "Laradin\\Category\\Database\\": "database/"
         }
     },
     "autoload-dev": {
