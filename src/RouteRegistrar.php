@@ -31,6 +31,10 @@ class RouteRegistrar
 			config('category.route.name'), 
 			'Laradin\Category\Http\Controllers\CrudController'
 		);
+
+		$this->router->get(config('category.route.name') . '/{category}/delete',
+			'Laradin\Category\Http\Controllers\CrudController@delete'
+		)->name(config('category.route.name').'.delete');
 	}
 
 }

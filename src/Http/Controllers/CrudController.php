@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 
 use Laradin\Category\Category;
 use Laradin\Category\Http\Requests\CategoryRequest;
+use Laradin\Category\Http\Requests\CategoryDestroyRequest;
 
 class CrudController extends Controller
 {
@@ -45,7 +46,6 @@ class CrudController extends Controller
     public function store(CategoryRequest $request)
     {
         $validated = $request->validated();
-
 
         if ( null!==($category = Category::create($request->all())) ) {
             return redirect(laradin_route('index'))->with([
@@ -104,6 +104,8 @@ class CrudController extends Controller
     {
         $request->validated();
         $model = Category::findOrFail($id);
+
+        // set default value of active to false
         $data  = array_merge(['active' => Category::ACTIVE_NO], $request->all());
 
         if ($model->update($data)) {
@@ -124,13 +126,63 @@ class CrudController extends Controller
     }
 
     /**
+     * 
+     * @return \Illuminate\Http\Response
+     */
+    public function delete(Category $category)
+    {
+        return view('laradin-category::category.delete', [
+            'model' => $category
+        ]);
+    }
+
+    /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(CategoryDestroyRequest $request, $id)
     {
-        //
+        $request->validated();
+        $model = Category::findOrFail($id);
+        
+        switch ($request->get('action')) {
+            case 'destroy':
+                if ($model->delete()) {
+                    return redirect(laradin_route('index'))->with([
+                        'notification' => [
+                            'class' => 'success',
+                            'message' => __('Category deleted successfully')
+                        ]
+                    ]);
+                } else {
+                    return redirect(laradin_route('index'))->with([
+                        'notification' => [
+                            'class' => 'danger',
+                            'message' => __('Category deleted fail')
+                        ]
+                    ]);
+                }                
+            break;
+
+            case 'disable':
+                if ($model->disable()) {
+                    return redirect(laradin_route('index'))->with([
+                        'notification' => [
+                            'class' => 'success',
+                            'message' => __('Category successfully disabled')
+                        ]
+                    ]);
+                } else {
+                    return redirect(laradin_route('index'))->with([
+                        'notification' => [
+                            'class' => 'success',
+                            'message' => __('Category fail to be disabled')
+                        ]
+                    ]);
+                }
+            break;
+        }
     }
 }
