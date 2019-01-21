@@ -36,7 +36,7 @@ class Category extends Model
 
         self::retrieved(function ($model) {
             
-        })
+        });
     }
 
     /**
