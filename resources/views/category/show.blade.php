@@ -58,7 +58,8 @@
                 <div class="card-footer">
                     <a href="{{ laradin_route('create') }}" class="btn btn-primary btn-sm">{{ laradin_trans('Add New') }}</a>
                     <a href="{{ laradin_route('edit', $model) }}" class="btn btn-primary btn-sm">{{ laradin_trans('Edit') }}</a>
-                    <a href="{{ laradin_route('index') }}" class="btn btn-primary btn-sm">{{ laradin_trans('Back To List') }}</a>
+                    <a href="{{ laradin_route('delete', $model) }}" class="btn btn-danger btn-sm">{{ laradin_trans('Delete') }}</a>
+					<a href="{{ laradin_route('index') }}" class="btn btn-primary btn-sm">{{ laradin_trans('Back To List') }}</a>
                 </div>
 			</div>
             

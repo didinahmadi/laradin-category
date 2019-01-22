@@ -40,6 +40,17 @@ class Category extends Model
     }
 
     /**
+     * disable category set active to = 0
+     * 
+     * @return bool
+     */
+    public function disable()
+    {
+        $this->status = self::ACTIVE_NO;
+        return $this->save();
+    }
+
+    /**
      * get flatten nested array list
      * 
      * @param  int|null  $parentId

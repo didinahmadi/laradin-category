@@ -146,7 +146,7 @@ class CrudController extends Controller
     {
         $request->validated();
         $model = Category::findOrFail($id);
-        
+
         switch ($request->get('action')) {
             case 'destroy':
                 if ($model->delete()) {
