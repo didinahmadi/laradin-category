@@ -17,4 +17,7 @@ return [
 	'Edit' => 'Edit',
 	'Updated At' => 'Updated At',
 	'Created At' => 'Created At',
+	'Delete' => 'Delete',
+	'Delete Permanently' => 'Delete Permanently',
+	'Disable' => 'Disable',
 ];
