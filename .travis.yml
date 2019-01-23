@@ -1,9 +1,8 @@
 language: php
-rvm:
- - 2.2
- - jruby
-addons:
-  mariadb: '10.0'
+php:
+  - '7.2'
+services:
+  - mysql
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS laratest-test;'
   - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('root') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"

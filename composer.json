@@ -40,7 +40,6 @@
         }
     },
     "scripts": {
-        "test": "php ./../../../vendor/bin/phpunit .",
-        "configure-commit-template": "git config --add commit.template .gitmessage"
+        "test": "php ./../../../vendor/bin/phpunit ."
     }    
 }
