@@ -29,7 +29,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Laradin\\Category\\Tests\\": "tests/"
+            "Laradin\\Category\\Tests\\": "tests/",
+            "Laradin\\Category\\Database\\": "database/"
         }
     },
     "extra": {
