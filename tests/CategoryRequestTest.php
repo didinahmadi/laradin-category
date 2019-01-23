@@ -2,7 +2,7 @@
 
 namespace Laradin\Category\Tests;
 
-use Tests\TestCase;
+use Orchestra\Testbench\TestCase;
 use Laradin\Category\Http\Requests\CategoryRequest;
 
 class CategoryRequestTest extends TestCase
@@ -12,7 +12,7 @@ class CategoryRequestTest extends TestCase
      * 
      * @return void
      */
-    public function testRuleDefinition()
+    public function test_rule_definition()
     {
         $request = new CategoryRequest;
         $this->assertEquals([

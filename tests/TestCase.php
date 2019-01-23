@@ -2,11 +2,51 @@
 
 namespace Laradin\Category\Tests;
 
-use Laradin\Category\Tests\TestCase;
+use Orchestra\Testbench\TestCase as OrchestraTest;
 use Laradin\Category\Category;
+use Laradin\Category\Database\Seeds\CategoryTableSeeder;
+use Illuminate\Support\Facades\Artisan;
 
-class CategoryTest extends TestCase
+class TestCase extends OrchestraTest
 {
+
+	protected $runSeeder = true;
+
+	protected function getPackageProviders($app)
+	{
+	    return ['Laradin\Category\CategoryServiceProvider'];
+	}
+
+    protected function getEnvironmentSetUp($app)
+    {
+        $app['config']->set('database.default', 'testing');
+        $app['config']->set('database.connections.testing', [
+	        'driver'   => 'mysql',
+	        'host' 	   => 'localhost',
+	        'database' => 'laratest-test',
+	        'prefix'   => '',
+	        'username' => 'root',
+	        'password' => 'root'
+	    ]);	    
+    }	
+    
+    public function setUp()
+    {
+        parent::setUp();
+        
+        $this->loadMigrationsFrom([
+			'--database' => 'testing',
+			'--path' => __DIR__ . '/../database/migrations'
+        ]);
+        
+        // run database seeder
+		// it will insert initial data to database for testing purpose
+		if ($this->runSeeder) {
+			Artisan::call('db:seed', [
+			'--class' => CategoryTableSeeder::class 
+			]);
+		}
+    }
 
     public function test_generate_flatten_nested_categories()
     {   
