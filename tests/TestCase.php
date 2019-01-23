@@ -26,7 +26,7 @@ class TestCase extends OrchestraTest
 	        'database' => 'laratest-test',
 	        'prefix'   => '',
 	        'username' => 'root',
-	        'password' => 'root'
+	        'password' => ''
 	    ]);	    
     }	
     
