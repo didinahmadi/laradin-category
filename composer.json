@@ -1,6 +1,6 @@
 {
     "name": "laradin/category",
-    "description": "Reusable laravel compponent to make categorization simple",
+    "description": "Reusable laravel component to make categorization simple",
     "type": "library",
     "license": "MIT",
     "authors": [
