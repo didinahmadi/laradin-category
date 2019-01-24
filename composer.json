@@ -21,7 +21,7 @@
     "autoload": {
         "psr-4": {
             "Laradin\\Category\\": "src/",
-            "Laradin\\Category\\Database\\": "database/"
+            "Laradin\\Category\\Database\\": "Database/"
         },
         "files": [
             "src/helpers/Helper.php"
@@ -29,8 +29,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Laradin\\Category\\Tests\\": "tests/",
-            "Laradin\\Category\\Database\\": "database/"
+            "Laradin\\Category\\Tests\\": "Tests/",
+            "Laradin\\Category\\Database\\": "Database/"
         }
     },
     "extra": {
@@ -41,6 +41,6 @@
         }
     },
     "scripts": {
-        "test": "php ./../../../vendor/bin/phpunit ."
+        "test": "php ./../../../vendor/bin/phpunit Tests --verbose"
     }    
 }
