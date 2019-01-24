@@ -6,4 +6,4 @@ services:
 before_install:
   - mysql -e 'CREATE DATABASE IF NOT EXISTS `laratest-test`;'
 before_script: composer install
-script: php ./vendor/bin/phpunit tests --verbose
+script: php ./vendor/bin/phpunit Tests --verbose
