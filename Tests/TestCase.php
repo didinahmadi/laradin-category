@@ -36,7 +36,7 @@ class TestCase extends OrchestraTest
         
         $this->loadMigrationsFrom([
 			'--database' => 'testing',
-			'--path' => __DIR__ . '/../database/migrations'
+			'--path' => __DIR__ . '/../Database/migrations'
         ]);
         
         // run database seeder
